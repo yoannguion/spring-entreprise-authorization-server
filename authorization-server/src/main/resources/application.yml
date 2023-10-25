@@ -1,0 +1,19 @@
+# https://docs.spring.io/spring-boot/docs/3.1.x/reference/htmlsingle/#web.security.oauth2.authorization-server
+spring:
+  security:
+    user:
+      # bcrypt of password
+      password: '{bcrypt}$2a$14$wAytVtOdFf3zexfmwugM7u0HmyN/L2YCcTeQ651SjuhW8Qy2ajMgG'
+  sql:
+    init:
+      schema-locations:
+      - 'classpath:org/springframework/security/oauth2/server/authorization/client/oauth2-registered-client-schema.sql'
+      - 'classpath:org/springframework/security/oauth2/server/authorization/oauth2-authorization-consent-schema.sql'
+      - 'classpath:org/springframework/security/oauth2/server/authorization/oauth2-authorization-schema.sql'
+server:
+  port: 9090
+jwt:
+  key:
+    id: 'configured-f57f-46a2-b502-8a24c308be7f'
+    public: classpath:app.pub
+    private: classpath:app.key
